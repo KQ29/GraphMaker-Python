@@ -50,7 +50,7 @@ def get_graph_type(prompt, valid_options, default='line'):
     """
     valid_options_str = ', '.join(valid_options)
     while True:
-        choice = input(f"{prompt} (options: {valid_options}) [default: {default}]: ").strip().lower()
+        choice = input(f"{prompt} (options: {valid_options_str}) [default: {default}]: ").strip().lower()
         if not choice and default:
             choice = default
         if choice in valid_options:
@@ -165,3 +165,17 @@ def get_save_path(prompt):
         return save_path
     else:
         return None
+
+def get_interactive_choice():
+    """
+    Prompt the user to choose between static and interactive plots.
+    """
+    choice = get_yes_no("Do you want an interactive plot", default='no')
+    return choice == 'yes'
+
+def get_kde_choice():
+    """
+    Prompt the user to choose whether to include KDE in histogram.
+    """
+    choice = get_yes_no("Do you want to include a KDE in the histogram", default='no')
+    return choice == 'yes'
