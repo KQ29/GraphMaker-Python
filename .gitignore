@@ -1,0 +1,7 @@
+# Ignoring Virtual Enviroment
+
+venv
+
+# Ignoring __pycache__
+
+__pycache__
